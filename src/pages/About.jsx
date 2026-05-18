@@ -1,6 +1,7 @@
 import { useModal } from '../context/ModalContext';
 import { Target, Shield, Zap, Users, Trophy } from 'lucide-react';
 import useInView from '../hooks/useInView';
+import useSEO from '../hooks/useSEO';
 
 const About = () => {
   const { openModal } = useModal();
@@ -10,6 +11,11 @@ const About = () => {
   const valuesRef = useInView();
   const whyRef = useInView();
   const ctaRef = useInView();
+
+  useSEO({
+    title: 'About LeadBrick | Pan-India Real Estate Marketing',
+    description: 'LeadBrick is a specialized lead generation partner for the real estate industry, delivering high-intent buyers directly to your site office across India.'
+  });
 
   const handleBookCall = () => {
     openModal();

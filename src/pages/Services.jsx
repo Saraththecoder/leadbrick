@@ -7,6 +7,7 @@ import facebookImg from '../assets/facebook.jpeg';
 import leadImg from '../assets/lead.png';
 import whatsappImg from '../assets/whatsapp.jpeg';
 import landingImg from '../assets/landing.png';
+import useSEO from '../hooks/useSEO';
 
 const Services = () => {
   const { openModal } = useModal();
@@ -14,6 +15,11 @@ const Services = () => {
   const ctaRef = useInView();
   const faqRef = useInView();
   const [openFaq, setOpenFaq] = useState(null);
+
+  useSEO({
+    title: 'Lead Generation Services | Meta Ads, WhatsApp Automation',
+    description: 'We offer specialized real estate marketing services: Meta Ads Management, Lead Generation, WhatsApp Funnels, and Landing Page Development.'
+  });
 
   const handleBookCall = () => {
     openModal();

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, MapPin, PhoneCall, ArrowRight } from 'lucide-react';
 import useInView from '../hooks/useInView';
 import contactImg from '../assets/contact.png';
+import useSEO from '../hooks/useSEO';
 
 const Contact = () => {
   const containerRef = useInView();
@@ -11,6 +12,11 @@ const Contact = () => {
     phone: '',
     company: '',
     message: '',
+  });
+
+  useSEO({
+    title: 'Contact LeadBrick | Book a Strategy Call',
+    description: 'Get in touch with LeadBrick today. Let\'s discuss your real estate project and build your high-performance lead generation engine.'
   });
 
   const handleChange = (e) => {

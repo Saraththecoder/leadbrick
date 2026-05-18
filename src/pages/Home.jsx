@@ -4,6 +4,7 @@ import { MousePointer2, MessageSquare, Layout, CheckCircle2, ArrowRight } from '
 import useInView from '../hooks/useInView';
 import { useModal } from '../context/ModalContext';
 import homeImg from '../assets/home.png';
+import useSEO from '../hooks/useSEO';
 
 const Home = () => {
   const { openModal } = useModal();
@@ -13,6 +14,11 @@ const Home = () => {
   const howRef = useInView();
   const aboutRef = useInView();
   const ctaRef = useInView();
+
+  useSEO({
+    title: 'LeadBrick | Real Estate Lead Generation & Performance Marketing',
+    description: 'We build performance-driven marketing engines that deliver qualified site visits and real estate buyers to your sales team.'
+  });
 
   const handleBookCall = () => {
     openModal();
