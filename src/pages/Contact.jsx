@@ -11,6 +11,7 @@ const Contact = () => {
     name: '',
     phone: '',
     company: '',
+    service: 'Meta Ads Management',
     message: '',
   });
 
@@ -25,9 +26,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, phone, company, message } = formData;
+    const { name, phone, company, service, message } = formData;
     const whatsappNumber = '919515553459';
-    const text = `Hi LeadBrick, I'm ${name} from ${company}. My number is ${phone}. Message: ${message}`;
+    const text = `Hi LeadBrick, I'm ${name} from ${company}. My number is ${phone}. I'm interested in: ${service}. Message: ${message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -134,6 +135,22 @@ const Contact = () => {
                       className="w-full bg-light border border-gray-200 p-4 rounded-xl focus:outline-none focus:border-brick focus:ring-1 focus:ring-brick transition-all" 
                       placeholder="ABC Builders" 
                     />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-grey">Service of Interest *</label>
+                    <select
+                      name="service"
+                      required
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-light border border-gray-200 p-4 rounded-xl focus:outline-none focus:border-brick focus:ring-1 focus:ring-brick transition-all cursor-pointer"
+                    >
+                      <option value="Meta Ads Management">Meta Ads Management</option>
+                      <option value="Real Estate Lead Generation">Real Estate Lead Generation</option>
+                      <option value="WhatsApp Lead Funnels">WhatsApp Lead Funnels</option>
+                      <option value="Landing Page Development">Landing Page Development</option>
+                    </select>
                   </div>
 
                   <div className="space-y-2">
