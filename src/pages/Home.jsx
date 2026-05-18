@@ -28,19 +28,13 @@ const Home = () => {
     <div className="overflow-hidden">
       {/* 1. HERO SECTION */}
       <section ref={heroRef} className="reveal min-h-[90vh] flex items-center py-20 md:py-32 bg-white relative overflow-hidden">
-        {/* Mobile Background Image (Hidden on lg to prevent duplication) */}
-        <div className="absolute inset-0 z-0 lg:hidden">
-          <img src={homeImg} alt="Luxury Real Estate" className="w-full h-full object-cover mix-blend-multiply opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white"></div>
-        </div>
-
-        {/* Decorative Background Blob (Desktop) */}
+        {/* Decorative Background Blob */}
         <div className="hidden lg:block absolute top-0 right-0 w-1/2 h-96 bg-brick/5 blur-[120px] rounded-full pointer-events-none -z-0"></div>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Text Content */}
-            <div className="space-y-8 text-center lg:text-left">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 pt-8 lg:pt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+            {/* Text Content (Bottom on Mobile, Left on Desktop) */}
+            <div className="order-2 lg:order-1 space-y-6 md:space-y-8 text-center lg:text-left">
               <span className="accent-label inline-block">REAL ESTATE LEAD GENERATION</span>
               <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight font-black text-charcoal">
                 Stop Wasting Money on Junk Leads. Start Getting <span className="text-brick">Qualified Site Visits.</span>
@@ -58,10 +52,10 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Desktop Image Content (Hidden on Mobile since it acts as background) */}
-            <div className="hidden lg:block relative w-full aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden shadow-2xl">
+            {/* Image Content (Top on Mobile, Right on Desktop) */}
+            <div className="order-1 lg:order-2 relative w-full aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <img src={homeImg} alt="Luxury Real Estate" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
           </div>
         </div>
