@@ -54,13 +54,21 @@ const About = () => {
             </div>
             
             <div className="w-full lg:w-7/12 space-y-12 md:space-y-16">
-              <div className="space-y-6 md:space-y-8">
-                <div>
-                  <span className="accent-label text-brick mb-2 block">OUR VISION</span>
+              <div className="space-y-10 md:space-y-12">
+                <div className="bg-light p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brick/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                  <div className="w-12 h-12 bg-white text-brick rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                    <Trophy size={24} />
+                  </div>
+                  <span className="accent-label text-brick mb-3 block">OUR VISION</span>
                   <p className="text-2xl md:text-3xl font-bold text-charcoal leading-tight">To be the most reliable growth partner for real estate developers across India.</p>
                 </div>
-                <div>
-                  <span className="accent-label text-brick mb-2 block">OUR MISSION</span>
+                <div className="bg-light p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brick/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                  <div className="w-12 h-12 bg-white text-brick rounded-xl flex items-center justify-center mb-6 shadow-sm">
+                    <Target size={24} />
+                  </div>
+                  <span className="accent-label text-brick mb-3 block">OUR MISSION</span>
                   <p className="text-lg md:text-xl text-grey leading-relaxed">
                     We eliminate the waste in real estate marketing by building performance-driven systems. We bridge the gap between digital leads and actual site visits, ensuring our clients achieve their sales targets predictably and efficiently.
                   </p>
@@ -80,7 +88,7 @@ const About = () => {
               <span className="accent-label text-brick mb-4 block">HOW WE WORK</span>
               <h2 className="text-3xl md:text-6xl font-black">Our Core Values</h2>
             </div>
-            <p className="text-xl text-grey max-w-sm">The principles that guide every campaign we build.</p>
+            <p className="text-xl text-grey max-w-sm hidden md:block"></p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

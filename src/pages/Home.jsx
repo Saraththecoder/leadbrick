@@ -27,29 +27,35 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* 1. HERO SECTION */}
-      <section ref={heroRef} className="reveal min-h-[90vh] flex items-center relative overflow-hidden py-20">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img src={homeImg} alt="Luxury Real Estate" className="w-full h-full object-cover mix-blend-multiply" />
-          <div className="absolute inset-0 bg-white/95"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 md:px-6 flex flex-col items-center text-center relative z-10">
-          <div className="max-w-4xl space-y-8">
-            <span className="accent-label mx-auto bg-white/50 backdrop-blur-md">REAL ESTATE LEAD GENERATION</span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight font-black">
-              Stop Wasting Money on Junk Leads. Start Getting <span className="text-brick">Qualified Site Visits.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-grey max-w-2xl mx-auto leading-relaxed">
-              Most agencies count "leads" as success. We count <strong>Site Visits</strong>. LeadBrick builds performance-driven marketing engines that filter out the window shoppers and deliver serious property buyers to your sales team.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <button onClick={handleBookCall} aria-label="Book Strategy Call" className="btn-primary text-center">
-                Book Strategy Call
-              </button>
-              <Link to="/services" aria-label="View Our Services" className="btn-secondary text-center">
-                Our Services
-              </Link>
+      <section ref={heroRef} className="reveal min-h-[90vh] flex items-center py-20 md:py-32 bg-white relative overflow-hidden">
+        {/* Decorative Background Blob */}
+        <div className="absolute top-0 right-0 w-full md:w-1/2 h-96 bg-brick/5 blur-[120px] rounded-full pointer-events-none -z-0"></div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Text Content */}
+            <div className="space-y-8 text-center lg:text-left">
+              <span className="accent-label inline-block">REAL ESTATE LEAD GENERATION</span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight font-black text-charcoal">
+                Stop Wasting Money on Junk Leads. Start Getting <span className="text-brick">Qualified Site Visits.</span>
+              </h1>
+              <p className="text-lg md:text-xl text-grey leading-relaxed">
+                Most agencies count "leads" as success. We count <strong>Site Visits</strong>. LeadBrick builds performance-driven marketing engines that filter out the window shoppers and deliver serious property buyers to your sales team.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                <button onClick={handleBookCall} aria-label="Book Strategy Call" className="btn-primary text-center">
+                  Book Strategy Call
+                </button>
+                <Link to="/services" aria-label="View Our Services" className="btn-secondary text-center">
+                  Our Services
+                </Link>
+              </div>
+            </div>
+
+            {/* Image Content */}
+            <div className="relative w-full aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden shadow-2xl">
+              <img src={homeImg} alt="Luxury Real Estate" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
         </div>
