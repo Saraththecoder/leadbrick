@@ -31,7 +31,7 @@ const Home = () => {
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center text-center relative z-10">
           <div className="max-w-4xl space-y-8">
             <span className="accent-label mx-auto bg-white/50 backdrop-blur-md">REAL ESTATE LEAD GENERATION</span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight font-black">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight font-black">
               Stop Wasting Money on Junk Leads. Start Getting <span className="text-brick">Qualified Site Visits.</span>
             </h1>
             <p className="text-lg md:text-xl text-grey max-w-2xl mx-auto leading-relaxed">

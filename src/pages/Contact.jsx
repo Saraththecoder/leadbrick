@@ -31,9 +31,9 @@ const Contact = () => {
   };
 
   return (
-    <div ref={containerRef} className="reveal flex flex-col lg:flex-row min-h-[90vh]">
+    <div ref={containerRef} className="reveal flex flex-col lg:flex-row lg:min-h-[90vh]">
       {/* LEFT: The Pitch (Dark) */}
-      <div className="lg:w-5/12 bg-black text-white p-8 md:p-16 lg:p-20 xl:p-24 relative overflow-hidden flex flex-col justify-between">
+      <div className="lg:w-5/12 bg-black text-white p-8 md:p-16 lg:p-20 xl:p-24 relative overflow-hidden flex flex-col justify-center lg:justify-between min-h-[60vh] lg:min-h-0">
         {/* Background Image & Overlays */}
         <div className="absolute inset-0 z-0">
           <img src={contactImg} alt="Contact" className="w-full h-full object-cover opacity-40 mix-blend-overlay" />
@@ -47,7 +47,7 @@ const Contact = () => {
           {/* Header */}
           <div className="space-y-6">
             <span className="accent-label text-brick block">GET IN TOUCH</span>
-            <h1 className="text-4xl md:text-6xl font-black leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black leading-tight mt-6">
               Ready to <br />
               <span className="text-brick">Scale</span> Sales?
             </h1>
@@ -102,7 +102,7 @@ const Contact = () => {
       </div>
 
       {/* RIGHT: The Form (Light) */}
-      <div className="lg:w-7/12 bg-white p-8 md:p-16 lg:p-20 xl:p-24 flex items-center justify-center relative">
+      <div className="lg:w-7/12 bg-white p-6 md:p-16 lg:p-20 xl:p-24 flex items-center justify-center relative py-16 lg:py-0">
         <div className="absolute top-12 right-12 text-6xl md:text-8xl font-black text-light select-none pointer-events-none">ENQUIRY</div>
         
         <div className="w-full max-w-2xl relative z-10">

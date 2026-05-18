@@ -89,7 +89,7 @@ const Services = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl">
             <span className="accent-label text-brick mb-6 block">OUR SERVICES</span>
-            <h1 className="text-4xl md:text-8xl mb-6 md:mb-8 leading-tight font-black">Performance Marketing <br/> Systems</h1>
+            <h1 className="text-4xl md:text-7xl mb-6 md:mb-8 leading-tight font-black break-words">Performance Marketing <br className="hidden md:block"/> Systems</h1>
             <p className="text-xl md:text-2xl text-grey leading-relaxed max-w-2xl">
               We engineer sales pipelines. Clear out the clutter and focus on what matters: qualified site visits.
             </p>
