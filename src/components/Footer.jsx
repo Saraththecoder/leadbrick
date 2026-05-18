@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Youtube, MessageCircle, Mail, MapPin } from 'lucide-react';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -17,13 +17,13 @@ const Footer = () => {
               Qualified Leads. Qualified Buyers. Performance marketing for real estate projects.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
+              <a href="#" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
+              <a href="#" aria-label="Visit our YouTube channel" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
                 <Youtube size={20} />
               </a>
-              <a href="https://wa.me/919515553459" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
+              <a href="https://wa.me/919515553459" aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
                 <MessageCircle size={20} />
               </a>
             </div>

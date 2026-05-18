@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import BookCallModal from './components/BookCallModal';
+import { ModalProvider } from './context/ModalContext';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -24,23 +26,26 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <BookCallModal />
     </div>
   );
 };
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <ModalProvider>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ModalProvider>
   );
 }
 

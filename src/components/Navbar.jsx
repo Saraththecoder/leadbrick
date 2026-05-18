@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.png';
+import { useModal } from '../context/ModalContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const { openModal } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,8 @@ const Navbar = () => {
   ];
 
   const handleBookCall = () => {
-    navigate('/contact');
+    openModal();
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -64,6 +66,8 @@ const Navbar = () => {
         <button 
           className="md:hidden text-charcoal"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>

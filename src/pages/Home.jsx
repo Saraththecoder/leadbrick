@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MousePointer2, MessageSquare, Layout, CheckCircle2, ArrowRight } from 'lucide-react';
 import useInView from '../hooks/useInView';
+import { useModal } from '../context/ModalContext';
+import homeImg from '../assets/home.png';
 
 const Home = () => {
-  const navigate = useNavigate();
+  const { openModal } = useModal();
   const heroRef = useInView();
   const systemRef = useInView();
   const whyRef = useInView();
@@ -13,72 +15,35 @@ const Home = () => {
   const ctaRef = useInView();
 
   const handleBookCall = () => {
-    navigate('/contact');
+    openModal();
   };
 
   return (
     <div className="overflow-hidden">
       {/* 1. HERO SECTION */}
-      <section ref={heroRef} className="reveal min-h-[90vh] flex items-center bg-white py-20">
-        <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-8">
-            <span className="accent-label">REAL ESTATE LEAD GENERATION</span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight">
+      <section ref={heroRef} className="reveal min-h-[90vh] flex items-center relative overflow-hidden py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img src={homeImg} alt="Luxury Real Estate" className="w-full h-full object-cover mix-blend-multiply" />
+          <div className="absolute inset-0 bg-white/95"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-6 flex flex-col items-center text-center relative z-10">
+          <div className="max-w-4xl space-y-8">
+            <span className="accent-label mx-auto bg-white/50 backdrop-blur-md">REAL ESTATE LEAD GENERATION</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight font-black">
               Stop Wasting Money on Junk Leads. Start Getting <span className="text-brick">Qualified Site Visits.</span>
             </h1>
-            <p className="text-lg md:text-xl text-grey max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-grey max-w-2xl mx-auto leading-relaxed">
               Most agencies count "leads" as success. We count <strong>Site Visits</strong>. LeadBrick builds performance-driven marketing engines that filter out the window shoppers and deliver serious property buyers to your sales team.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button onClick={handleBookCall} className="btn-primary text-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+              <button onClick={handleBookCall} aria-label="Book Strategy Call" className="btn-primary text-center">
                 Book Strategy Call
               </button>
-              <Link to="/services" className="btn-secondary text-center">
+              <Link to="/services" aria-label="View Our Services" className="btn-secondary text-center">
                 Our Services
               </Link>
-            </div>
-          </div>
-          
-          <div className="lg:col-span-5 relative">
-            <div className="relative w-full aspect-square bg-light rounded-2xl flex items-center justify-center p-4 overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                alt="Modern Real Estate" 
-                className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
-              />
-              
-              <div className="relative z-10 w-full space-y-4 px-4">
-                {/* Floating Stat Cards */}
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white/20 flex items-center justify-between animate-float" style={{ animationDelay: '0s' }}>
-                  <div>
-                    <p className="text-xs font-bold text-grey uppercase tracking-wider">Leads Today</p>
-                    <h3 className="text-2xl text-brick">47</h3>
-                  </div>
-                  <div className="w-10 h-10 bg-brick/10 rounded-full flex items-center justify-center text-brick">
-                    <MousePointer2 size={20} />
-                  </div>
-                </div>
-                
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white/20 flex items-center justify-between ml-8 animate-float" style={{ animationDelay: '0.5s' }}>
-                  <div>
-                    <p className="text-xs font-bold text-grey uppercase tracking-wider">Site Visits</p>
-                    <h3 className="text-2xl text-black">12</h3>
-                  </div>
-                  <div className="w-10 h-10 bg-black/5 rounded-full flex items-center justify-center text-black">
-                    <CheckCircle2 size={20} />
-                  </div>
-                </div>
-                
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white/20 flex items-center justify-between ml-4 animate-float" style={{ animationDelay: '1s' }}>
-                  <div>
-                    <p className="text-xs font-bold text-grey uppercase tracking-wider">Campaign Status</p>
-                    <h3 className="text-2xl text-brick-dark font-bold">OPTIMIZED</h3>
-                  </div>
-                  <div className="w-10 h-10 bg-brick-dark/10 rounded-full flex items-center justify-center text-brick-dark">
-                    <ArrowRight size={20} />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -134,7 +99,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="accent-label">THE LEADBRICK EDGE</span>
-              <h2 className="text-4xl md:text-5xl mt-4 mb-8">Performance That Drives Project Sales</h2>
+              <h2 className="text-3xl md:text-5xl mt-4 mb-8 font-black">Performance That Drives Project Sales</h2>
               <p className="text-lg text-grey leading-relaxed">
                 General agencies focus on "Brand Awareness." We focus on your <strong>Sales Target</strong>. We understand that in real estate, the only lead that matters is the one that shows up at your project site.
               </p>
@@ -198,7 +163,7 @@ const Home = () => {
       {/* 5. ABOUT PREVIEW - REDESIGNED */}
       <section ref={aboutRef} className="reveal py-32 bg-black text-white overflow-hidden relative">
         {/* Background Decorative Text */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 text-[20rem] font-black text-white/[0.03] whitespace-nowrap pointer-events-none select-none">
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 text-8xl md:text-[20rem] font-black text-white/[0.03] whitespace-nowrap pointer-events-none select-none">
           PAN INDIA BASED
         </div>
         
@@ -206,7 +171,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
               <span className="accent-label text-brick">PAN-INDIA GROWTH. BUILT FOR BUILDERS.</span>
-              <h2 className="text-5xl md:text-7xl leading-tight font-black">
+              <h2 className="text-4xl md:text-7xl leading-tight font-black">
                 Performance <br />
                 <span className="text-brick">Without the</span> <br />
                 Agency Fluff.
@@ -222,7 +187,7 @@ const Home = () => {
               </p>
               <div className="flex items-center gap-6">
                 <Link to="/about" className="btn-primary">
-                  The LeadBrick Story
+                  Learn More
                 </Link>
                 <div className="hidden sm:block h-px w-20 bg-white/20"></div>
               </div>
@@ -234,12 +199,13 @@ const Home = () => {
       {/* 6. FINAL CTA SECTION */}
       <section ref={ctaRef} className="reveal py-24 bg-brick text-white">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-8">
-          <h2 className="text-4xl md:text-6xl max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-6xl max-w-4xl mx-auto font-black">
             Looking to Generate More Qualified Buyer Leads?
           </h2>
           <p className="text-xl opacity-90">Let's build your lead generation system.</p>
           <button 
             onClick={handleBookCall}
+            aria-label="Book a consultation"
             className="bg-white text-brick px-10 py-5 rounded-xl font-bold text-lg hover:bg-light transition-colors"
           >
             Book a Consultation

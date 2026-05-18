@@ -18,7 +18,6 @@ export default {
       },
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],
-        clash: ['Clash Display', 'Manrope', 'sans-serif'],
       },
       borderRadius: {
         'xl': '12px',
