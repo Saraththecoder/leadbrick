@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg';
 
-const Navbar = ({ onBookCall }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,12 +29,16 @@ const Navbar = ({ onBookCall }) => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const handleBookCall = () => {
+    navigate('/contact');
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md py-3' : 'border-b border-gray-100 py-5'}`}>
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="LeadBrick" className="h-10 md:h-12 w-auto object-contain" />
+          <img src={logo} alt="LeadBrick" className="h-14 md:h-20 w-auto object-contain" />
         </Link>
 
         {/* Desktop Nav */}
@@ -48,7 +53,7 @@ const Navbar = ({ onBookCall }) => {
             </Link>
           ))}
           <button 
-            onClick={onBookCall}
+            onClick={handleBookCall}
             className="btn-primary"
           >
             Book Strategy Call
@@ -77,7 +82,7 @@ const Navbar = ({ onBookCall }) => {
             </Link>
           ))}
           <button 
-            onClick={onBookCall}
+            onClick={handleBookCall}
             className="btn-primary w-full text-center"
           >
             Book Strategy Call

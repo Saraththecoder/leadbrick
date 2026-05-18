@@ -1,15 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MousePointer2, MessageSquare, Layout, CheckCircle2, ArrowRight } from 'lucide-react';
 import useInView from '../hooks/useInView';
 
-const Home = ({ onBookCall }) => {
+const Home = () => {
+  const navigate = useNavigate();
   const heroRef = useInView();
   const systemRef = useInView();
   const whyRef = useInView();
   const howRef = useInView();
   const aboutRef = useInView();
   const ctaRef = useInView();
+
+  const handleBookCall = () => {
+    navigate('/contact');
+  };
 
   return (
     <div className="overflow-hidden">
@@ -19,13 +24,13 @@ const Home = ({ onBookCall }) => {
           <div className="lg:col-span-7 space-y-8">
             <span className="accent-label">REAL ESTATE LEAD GENERATION</span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight">
-              Generate Qualified Site-Visit Leads for Your Real Estate Projects
+              Stop Wasting Money on Junk Leads. Start Getting <span className="text-brick">Qualified Site Visits.</span>
             </h1>
             <p className="text-lg md:text-xl text-grey max-w-2xl leading-relaxed">
-              LeadBrick helps builders generate qualified buyer leads using Meta Ads, WhatsApp funnels, and high-converting landing pages.
+              Most agencies count "leads" as success. We count <strong>Site Visits</strong>. LeadBrick builds performance-driven marketing engines that filter out the window shoppers and deliver serious property buyers to your sales team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button onClick={onBookCall} className="btn-primary text-center">
+              <button onClick={handleBookCall} className="btn-primary text-center">
                 Book Strategy Call
               </button>
               <Link to="/services" className="btn-secondary text-center">
@@ -35,20 +40,16 @@ const Home = ({ onBookCall }) => {
           </div>
           
           <div className="lg:col-span-5 relative">
-            {/* Abstract Geometric Visual */}
-            <div className="relative w-full aspect-square bg-light rounded-2xl flex items-center justify-center p-8 overflow-hidden">
-              <svg viewBox="0 0 200 200" className="w-full h-full opacity-20 absolute top-0 left-0">
-                <defs>
-                  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-              </svg>
+            <div className="relative w-full aspect-square bg-light rounded-2xl flex items-center justify-center p-4 overflow-hidden shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                alt="Modern Real Estate" 
+                className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
+              />
               
-              <div className="relative z-10 w-full space-y-4">
+              <div className="relative z-10 w-full space-y-4 px-4">
                 {/* Floating Stat Cards */}
-                <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-50 flex items-center justify-between animate-float" style={{ animationDelay: '0s' }}>
+                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white/20 flex items-center justify-between animate-float" style={{ animationDelay: '0s' }}>
                   <div>
                     <p className="text-xs font-bold text-grey uppercase tracking-wider">Leads Today</p>
                     <h3 className="text-2xl text-brick">47</h3>
@@ -58,7 +59,7 @@ const Home = ({ onBookCall }) => {
                   </div>
                 </div>
                 
-                <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-50 flex items-center justify-between ml-8 animate-float" style={{ animationDelay: '0.5s' }}>
+                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white/20 flex items-center justify-between ml-8 animate-float" style={{ animationDelay: '0.5s' }}>
                   <div>
                     <p className="text-xs font-bold text-grey uppercase tracking-wider">Site Visits</p>
                     <h3 className="text-2xl text-black">12</h3>
@@ -68,22 +69,15 @@ const Home = ({ onBookCall }) => {
                   </div>
                 </div>
                 
-                <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-50 flex items-center justify-between ml-4 animate-float" style={{ animationDelay: '1s' }}>
+                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white/20 flex items-center justify-between ml-4 animate-float" style={{ animationDelay: '1s' }}>
                   <div>
-                    <p className="text-xs font-bold text-grey uppercase tracking-wider">Cost Per Lead</p>
-                    <h3 className="text-2xl text-brick-dark">₹180</h3>
+                    <p className="text-xs font-bold text-grey uppercase tracking-wider">Campaign Status</p>
+                    <h3 className="text-2xl text-brick-dark font-bold">OPTIMIZED</h3>
                   </div>
                   <div className="w-10 h-10 bg-brick-dark/10 rounded-full flex items-center justify-center text-brick-dark">
                     <ArrowRight size={20} />
                   </div>
                 </div>
-              </div>
-              
-              {/* Decorative Brick Grid */}
-              <div className="absolute -bottom-10 -right-10 grid grid-cols-4 gap-2 rotate-12 opacity-10">
-                {[...Array(16)].map((_, i) => (
-                  <div key={i} className="w-12 h-6 bg-brick rounded-sm"></div>
-                ))}
               </div>
             </div>
           </div>
@@ -105,9 +99,9 @@ const Home = ({ onBookCall }) => {
               <div className="w-14 h-14 bg-brick/10 text-brick rounded-xl flex items-center justify-center mb-8 group-hover:bg-brick group-hover:text-white transition-all">
                 <MousePointer2 size={28} />
               </div>
-              <h3 className="text-xl mb-4">Meta Ads Campaigns</h3>
+              <h3 className="text-xl mb-4 font-bold">High-Intent Meta Ads</h3>
               <p className="text-grey leading-relaxed">
-                Facebook + Instagram campaigns designed specifically for real estate projects to target the right demographic.
+                We don't just run ads; we engineer campaigns. Using advanced interest-based targeting and custom audience frameworks, we place your project in front of high-net-worth individuals actively looking for properties.
               </p>
             </div>
             
@@ -115,9 +109,9 @@ const Home = ({ onBookCall }) => {
               <div className="w-14 h-14 bg-brick/10 text-brick rounded-xl flex items-center justify-center mb-8 group-hover:bg-brick group-hover:text-white transition-all">
                 <Layout size={28} />
               </div>
-              <h3 className="text-xl mb-4">Landing Pages</h3>
+              <h3 className="text-xl mb-4 font-bold">Conversion-Optimized Landing Pages</h3>
               <p className="text-grey leading-relaxed">
-                Conversion-focused pages optimized to capture serious buyer inquiries and showcase your project's value.
+                A slow or confusing website kills leads. We build lightning-fast, mobile-first landing pages designed with psychological triggers that guide potential buyers to leave their details and request a callback or site visit.
               </p>
             </div>
             
@@ -125,9 +119,9 @@ const Home = ({ onBookCall }) => {
               <div className="w-14 h-14 bg-brick/10 text-brick rounded-xl flex items-center justify-center mb-8 group-hover:bg-brick group-hover:text-white transition-all">
                 <MessageSquare size={28} />
               </div>
-              <h3 className="text-xl mb-4">WhatsApp Lead Funnels</h3>
+              <h3 className="text-xl mb-4 font-bold">24/7 WhatsApp Automation</h3>
               <p className="text-grey leading-relaxed">
-                Automated WhatsApp systems that improve lead response time and increase site-visit conversions.
+                Leads go cold in 5 minutes. Our automated WhatsApp funnels engage your prospects instantly, answer common questions about floor plans and pricing, and book site visits for your sales team while they sleep.
               </p>
             </div>
           </div>
@@ -140,25 +134,28 @@ const Home = ({ onBookCall }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="accent-label">THE LEADBRICK EDGE</span>
-              <h2 className="text-4xl md:text-5xl mt-4 mb-8">Why Builders Choose LeadBrick</h2>
+              <h2 className="text-4xl md:text-5xl mt-4 mb-8">Performance That Drives Project Sales</h2>
               <p className="text-lg text-grey leading-relaxed">
-                We don't just run ads; we build comprehensive systems that turn digital interest into physical site visits.
+                General agencies focus on "Brand Awareness." We focus on your <strong>Sales Target</strong>. We understand that in real estate, the only lead that matters is the one that shows up at your project site.
               </p>
             </div>
             
             <div className="space-y-6">
               {[
-                "Qualified Buyer Leads Only",
-                "Faster Lead Response Systems",
-                "Conversion-Focused Funnels",
-                "Transparent Weekly Reporting",
-                "Performance Marketing, Not Just Ads"
+                { title: "Zero Junk Leads", desc: "Our filters ensure you only talk to buyers with the right budget." },
+                { title: "Immediate Response", desc: "WhatsApp automation engages buyers while the intent is highest." },
+                { title: "Data-Backed Creative", desc: "We use ad designs proven to work for the real estate market." },
+                { title: "Site Visit Focus", desc: "Our entire funnel is optimized to get people to your project location." },
+                { title: "Transparent ROI", desc: "Weekly reports showing exactly how much each site visit cost you." }
               ].map((item, i) => (
-                <div key={i} className="flex items-center space-x-4 bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                  <div className="shrink-0 w-6 h-6 rounded-full bg-brick flex items-center justify-center text-white">
-                    <CheckCircle2 size={14} />
+                <div key={i} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                  <div className="flex items-center space-x-4 mb-2">
+                    <div className="shrink-0 w-6 h-6 rounded-full bg-brick flex items-center justify-center text-white">
+                      <CheckCircle2 size={14} />
+                    </div>
+                    <span className="font-bold text-charcoal">{item.title}</span>
                   </div>
-                  <span className="font-bold text-charcoal">{item}</span>
+                  <p className="text-grey text-sm ml-10">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -198,21 +195,37 @@ const Home = ({ onBookCall }) => {
         </div>
       </section>
 
-      {/* 5. ABOUT PREVIEW */}
-      <section ref={aboutRef} className="reveal py-24 bg-black text-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <h2 className="text-4xl md:text-5xl leading-tight">
-              Built for Builders. <br />
-              <span className="text-brick">Focused on Results.</span>
-            </h2>
+      {/* 5. ABOUT PREVIEW - REDESIGNED */}
+      <section ref={aboutRef} className="reveal py-32 bg-black text-white overflow-hidden relative">
+        {/* Background Decorative Text */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 text-[20rem] font-black text-white/[0.03] whitespace-nowrap pointer-events-none select-none">
+          PAN INDIA BASED
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
-              <p className="text-xl text-grey leading-relaxed">
-                LeadBrick is a Hyderabad-based real estate lead generation agency focused on helping builders generate qualified buyer inquiries through performance marketing systems.
+              <span className="accent-label text-brick">PAN-INDIA GROWTH. BUILT FOR BUILDERS.</span>
+              <h2 className="text-5xl md:text-7xl leading-tight font-black">
+                Performance <br />
+                <span className="text-brick">Without the</span> <br />
+                Agency Fluff.
+              </h2>
+            </div>
+            
+            <div className="space-y-10 lg:pl-10 border-l border-white/10">
+              <p className="text-xl md:text-2xl text-grey leading-relaxed">
+                LeadBrick isn't just another marketing agency. We are a specialized lead generation partner for the real estate industry. 
               </p>
-              <Link to="/about" className="btn-secondary-white inline-block">
-                Learn More About Us
-              </Link>
+              <p className="text-lg text-grey leading-relaxed">
+                We understand that every square foot counts. Our systems are built to ensure your project's sales pipeline is never empty, delivering high-intent buyers directly to your site office across India.
+              </p>
+              <div className="flex items-center gap-6">
+                <Link to="/about" className="btn-primary">
+                  The LeadBrick Story
+                </Link>
+                <div className="hidden sm:block h-px w-20 bg-white/20"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -226,7 +239,7 @@ const Home = ({ onBookCall }) => {
           </h2>
           <p className="text-xl opacity-90">Let's build your lead generation system.</p>
           <button 
-            onClick={onBookCall}
+            onClick={handleBookCall}
             className="bg-white text-brick px-10 py-5 rounded-xl font-bold text-lg hover:bg-light transition-colors"
           >
             Book a Consultation

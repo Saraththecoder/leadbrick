@@ -1,10 +1,17 @@
-import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { MousePointer2, Layout, MessageSquare, Target, CheckCircle2 } from 'lucide-react';
 import useInView from '../hooks/useInView';
+import facebookImg from '../assets/facebook.jpeg';
+import whatsappImg from '../assets/whatsapp.jpeg';
 
-const Services = ({ onBookCall }) => {
+const Services = () => {
+  const navigate = useNavigate();
   const heroRef = useInView();
   const ctaRef = useInView();
+
+  const handleBookCall = () => {
+    navigate('/contact');
+  };
 
   const servicesList = [
     {
@@ -12,36 +19,40 @@ const Services = ({ onBookCall }) => {
       icon: MousePointer2,
       number: '01',
       title: 'Meta Ads Management',
-      problem: 'Most real estate ads attract casual "window shoppers" who never pick up the phone or visit the site.',
-      solution: 'We build high-intent Meta ad campaigns using custom audiences and creative frameworks that speak directly to serious property buyers.',
-      outcome: 'Higher click-to-lead conversion rates.',
+      image: facebookImg,
+      problem: 'Most real estate builders waste lakhs on broad Meta campaigns that only attract "accidental" clicks and low-intent inquiries that never pick up the phone.',
+      solution: 'We deploy a "Zero-Waste" targeting framework. By using hyper-local geo-fencing, HNI interest modeling, and dynamic creative testing, we ensure every rupee of your ad spend is chasing a serious property buyer.',
+      outcome: '3x Increase in Qualified Lead-to-Site Visit Ratio.',
     },
     {
       id: 'leads',
       icon: Target,
       number: '02',
       title: 'Real Estate Lead Generation',
-      problem: 'Builders often struggle with lead quality, spending too much time on junk inquiries.',
-      solution: 'Our multi-step qualification process filters out casual browsers, ensuring your sales team only talks to serious prospects.',
-      outcome: 'Qualified inquiries ready for site visits.',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      problem: 'Sales teams are often overwhelmed with poor-quality leads, wasting hours calling people who "just clicked by mistake" or don\'t have the budget.',
+      solution: 'Our multi-layer qualification system filters leads before they reach you. We use interactive forms and automated pre-screening to verify budget, intent, and location preferences.',
+      outcome: 'A Sales Pipeline filled with "Ready-to-Visit" Prospects.',
     },
     {
       id: 'whatsapp',
       icon: MessageSquare,
       number: '03',
       title: 'WhatsApp Lead Funnels',
-      problem: 'Leads go cold when they aren\'t contacted immediately, resulting in lost opportunities.',
-      solution: 'We implement automated WhatsApp funnels that engage leads within seconds of their inquiry, booking site visits automatically.',
-      outcome: 'Instant engagement & higher site-visit ratios.',
+      image: whatsappImg,
+      problem: 'In the fast-paced Hyderabad real estate market, speed is everything. A lead that isn\'t contacted within minutes is usually lost to a competitor.',
+      solution: 'We bridge the gap with Intelligent WhatsApp Automation. From the moment a lead is captured, they receive your brochure, pricing details, and an automated site-visit booking link via WhatsApp.',
+      outcome: '80% Reduction in Lead Response Time.',
     },
     {
       id: 'landing',
       icon: Layout,
       number: '04',
       title: 'Landing Page Development',
-      problem: 'Generic websites overwhelm visitors with too much information, causing them to leave without inquiring.',
-      solution: 'We design hyper-focused landing pages for specific projects that highlight USPs and drive maximum conversions.',
-      outcome: '2x-3x higher lead capture compared to websites.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      problem: 'Project websites are often too slow, too cluttered, or not optimized for mobile, leading to high bounce rates and lost opportunities.',
+      solution: 'We build high-performance "Conversion Engines". These are project-specific landing pages that load in under 2 seconds and use persuasive copywriting to drive inquiries.',
+      outcome: '2x Lower Cost-Per-Lead (CPL) via Better UX.',
     }
   ];
 
@@ -80,37 +91,39 @@ const Services = ({ onBookCall }) => {
                 </div>
 
                 {/* Title & Core Content */}
-                <div className="lg:col-span-5 space-y-8">
-                  <h2 className="text-4xl md:text-6xl font-extrabold group-hover:text-brick transition-colors duration-300">
+                <div className="lg:col-span-4 space-y-8">
+                  <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 lg:hidden">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-extrabold group-hover:text-brick transition-colors duration-300">
                     {service.title}
                   </h2>
                   <div className="space-y-6">
                     <div>
                       <span className="accent-label text-grey mb-2 block">THE CHALLENGE</span>
-                      <p className="text-xl text-charcoal leading-relaxed">{service.problem}</p>
+                      <p className="text-lg text-charcoal leading-relaxed">{service.problem}</p>
                     </div>
                     <div className="pt-6 border-t border-gray-50">
                       <span className="accent-label text-brick mb-2 block">THE LEADBRICK SOLUTION</span>
-                      <p className="text-xl text-grey leading-relaxed">{service.solution}</p>
+                      <p className="text-lg text-grey leading-relaxed">{service.solution}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Outcome - Styled as a "Metric" card */}
-                <div className="lg:col-span-5 lg:pl-12">
-                  <div className="bg-light p-8 md:p-12 rounded-3xl relative overflow-hidden group-hover:bg-brick transition-colors duration-500">
-                    {/* Decorative element */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                {/* Image & Outcome */}
+                <div className="lg:col-span-6 lg:pl-8 space-y-8">
+                  <div className="hidden lg:block relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  </div>
+
+                  <div className="bg-light p-8 rounded-3xl relative overflow-hidden group-hover:bg-brick transition-colors duration-500">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700"></div>
                     
-                    <span className="accent-label text-grey group-hover:text-white/60 mb-6 block">PROJECT IMPACT</span>
-                    <h3 className="text-3xl md:text-4xl font-bold text-charcoal group-hover:text-white leading-tight">
+                    <span className="accent-label text-grey group-hover:text-white/60 mb-4 block">PROJECT IMPACT</span>
+                    <h3 className="text-2xl font-bold text-charcoal group-hover:text-white leading-tight">
                       {service.outcome}
                     </h3>
-                    
-                    <div className="mt-8 flex items-center gap-2 text-brick group-hover:text-white">
-                      <CheckCircle2 size={24} />
-                      <span className="font-bold uppercase tracking-wider text-sm">Service Verified</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -127,7 +140,7 @@ const Services = ({ onBookCall }) => {
           </h2>
           <p className="text-xl opacity-90">Book a consultation to discuss your specific project needs.</p>
           <button 
-            onClick={onBookCall}
+            onClick={handleBookCall}
             className="bg-white text-brick px-10 py-5 rounded-xl font-bold text-lg hover:bg-light transition-colors"
           >
             Book a Consultation
