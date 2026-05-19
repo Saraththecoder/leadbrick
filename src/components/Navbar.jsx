@@ -58,7 +58,7 @@ const Navbar = () => {
             onClick={handleBookCall}
             className="btn-primary"
           >
-            Book Strategy Call
+            Book Free Strategy Call
           </button>
         </div>
 
@@ -89,7 +89,7 @@ const Navbar = () => {
             onClick={handleBookCall}
             className="btn-primary w-full text-center"
           >
-            Book Strategy Call
+            Book Free Strategy Call
           </button>
         </div>
       )}
