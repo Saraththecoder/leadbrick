@@ -14,7 +14,7 @@ const Footer = () => {
               <img src={logo} alt="LeadBrick" className="h-16 w-auto object-contain" />
             </Link>
             <p className="text-grey max-w-xs">
-              Qualified Leads. Qualified Buyers. Performance marketing for real estate projects.
+              We generate high-quality buyer inquiries for real estate projects using Meta Ads and WhatsApp lead funnels.
             </p>
             <div className="flex space-x-4">
               <a href="#" aria-label="Visit our Instagram page" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brick hover:border-brick transition-all">
@@ -59,7 +59,7 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest mb-6">Based in</h4>
             <p className="text-grey leading-relaxed">
-              Serving real estate builders and developers across India with high-performance lead generation systems.
+              Serving real estate builders and developers across India with high-performance lead generation systems to drive site visits.
             </p>
           </div>
         </div>

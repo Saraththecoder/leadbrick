@@ -7,6 +7,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import BookCallModal from './components/BookCallModal';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import { ModalProvider } from './context/ModalContext';
 
 // Scroll to top on route change
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
       </main>
       <Footer />
       <BookCallModal />
+      <FloatingWhatsApp />
     </div>
   );
 };
